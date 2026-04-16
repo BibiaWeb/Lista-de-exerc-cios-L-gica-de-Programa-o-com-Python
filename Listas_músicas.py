@@ -32,8 +32,16 @@ while opcao != 2:
         for musica in lista_musicas:
             print(x, " - ", musica)
             x = 1
-        deletar_musica = int(input("Número da música pra apagar: "))
-        lista_musicas.pop(deletar_musica - 1)
+        editar_musica = int(input("Número da música pra editar: ")) # Salvando número da música
+        musica_alterada = "" # Criando uma caixinha pra armazenar o nome da música
+        for musica in lista_musicas: # Percorrendo a lista de música
+
+            # Salvando o nome da música caso o número dela seja o número que o usuário salvou
+            if editar_musica == x: musica_alterada = musica
+        print(f"Música à ser alterada: {musica_alterada}")
+        nova_musica = str(input("Insira o novo nome da música ", musica_alterada, ": "))
+        lista_musicas.pop(musica_alterada - 1) # Removo música antiga
+        lista_musicas.append(nova_musica) # Adiciono música nova
     elif opcao == 5:
         print("Saindo...")
     else:
